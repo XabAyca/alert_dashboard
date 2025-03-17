@@ -3,7 +3,7 @@
 Dir["./services/**/*.rb"].each { |file| require file }
 
 def classify(name)
-name.chomp(".rb").split("/").last.split("_").map(&:capitalize).join
+  name.chomp(".rb").split("/").last.split("_").map(&:capitalize).join
 end
 
 loop do

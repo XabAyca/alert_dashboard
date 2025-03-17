@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
 system("bundle exec reek -c config/reek.yml")
-system("bundle exec rubocop --fail-level C --parallel -c config/rubocop.yml")
+system("bundle exec rubocop --fail-level C --parallel -c .rubocop.yml")

@@ -1,4 +1,6 @@
 require "bundler/setup" if File.exist?("Gemfile")
+require "dotenv/load"
 
-Dir[File.join(__dir__, "lib", "*.rb")].each { |file| require file }
-Dir[File.join(__dir__, "services", "*.rb")].each { |file| require file }
+Dir["./config/**/*.rb"].each { |file| require file }
+Dir["./services/**/*.rb"].each { |file| require file }
+Dir["./utils/**/*.rb"].each { |file| require file }

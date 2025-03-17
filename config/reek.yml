@@ -1,0 +1,5 @@
+---
+detectors:
+  UncommunicativeModuleName:
+    accept:
+      - V1
