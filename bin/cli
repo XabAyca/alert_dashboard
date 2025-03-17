@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+Dir["./services/**/*.rb"].each { |file| require file }
+
+def classify(name)
+name.chomp(".rb").split("/").last.split("_").map(&:capitalize).join
+end
+
+loop do
+  services = Dir["./services/**/*.rb"].map { |file| classify(file) }
+
+  puts "Services disponibles :"
+
+  services.each_with_index do |service_name, index|
+    puts "#{index + 1}. #{service_name}"
+  end
+
+  print "Entrez le numéro du service à exécuter (ou 'exit' pour quitter) > "
+  input = gets.chomp
+  break if input == "exit"
+
+  if input.to_i > 0 && input.to_i <= services.length
+    klass_name = services[input.to_i - 1]
+
+    if defined?(klass_name)
+      puts Object.const_get(klass_name).call
+    else
+      puts "Le service '#{klass_name}' n'est pas défini."
+    end
+  else
+    puts "Entrée invalide, veuillez entrer un numéro valide."
+  end
+end
