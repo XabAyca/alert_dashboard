@@ -11,7 +11,6 @@ notion_dashboard/
 │   ├── code_check     # Script pour lancer les linters (reek, rubocop)
 │── config/
 │   ├── reek.yml      # Configuration pour Reek
-│   ├── rubocop.yml   # Configuration pour RuboCop
 │── lib/
 │   ├── ma_lib.rb     # Exemple de lib
 │── services/
@@ -19,6 +18,7 @@ notion_dashboard/
 │── app.rb             # Fichier principal de l'application
 │── Gemfile            # Dépendances Ruby
 │── README.md          # Documentation
+├── .rubocop.yml   # Configuration pour RuboCop
 ```
 
 ## Installation
@@ -42,10 +42,10 @@ Une fois dans la console, vous pouvez exécuter un service :
 MonService.call("Hello")
 ```
 
-### Exécuter un service en ligne de commande
+### Exécuter un service en ligne de commande CLI
 Si un service doit être exécuté directement depuis le terminal :
 ```sh
-ruby bin/cli "Hello"
+bin/cli
 ```
 
 ### Vérifier le code avec les linters
